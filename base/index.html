@@ -1,0 +1,599 @@
+<html lang="en" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arifzyn API || HOME</title>
+    <meta name="author" content="Arifzyn">
+    <meta name="description" content="Arifzyn API adalah platform REST API yang handal dan mudah digunakan. Dengan antarmuka yang intuitif, pengguna dapat mengakses dan mengintegrasikan berbagai sumber daya data dengan mudah.">
+    <meta name="keywords" content="Arifzyn, API, REST, web">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://api.arifzyn.tech/">
+    <meta property="og:title" content="Arifzyn API | Restfull API">
+    <meta property="og:description" content="Arifzyn API adalah platform REST API yang handal dan mudah digunakan.">
+    <meta property="og:image" content="https://telegra.ph/file/3098a8841b7e09bde956c.jpg">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link href="css/home.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+
+  <body class="dark:bg-black">
+    <header class="header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center">
+  <div class="container">
+    <div class="flex mx-[-16px] items-center justify-between relative">
+      <div class="px-4 w-60 max-w-full">
+        <a href="#" class="w-full block py-8 header-logo flex items-center">
+          <span class="ml-2 text-white text-2xl font-semibold">Arifzyn API</span>
+        </a>
+      </div>
+      <div class="flex px-4 justify-between items-center w-full">
+        <div>
+          <button id="navbarToggler" aria-label="Mobile Menu" class="block absolute right-4 top-1/2 translate-y-[-50%] lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg">
+            <span class="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
+            <span class="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
+            <span class="relative w-[30px] h-[2px] my-[6px] block bg-dark dark:bg-white"></span>
+          </button>
+          <nav id="navbarCollapse" class="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white dark:bg-dark lg:dark:bg-transparent lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none">
+            <ul class="block lg:flex">
+              <li class="relative group">
+                <a href="#home" class="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
+                  Home
+                </a>
+              </li>
+              <li class="relative group">
+                <a href="#about" class="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
+                  About
+                </a>
+              </li>
+              <li class="relative group">
+                <a href="#pricing" class="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
+                  Pricing
+                </a>
+              </li>
+              <li class="relative group">
+                <a href="#contact" class="menu-scroll text-base text-dark dark:text-white group-hover:opacity-70 py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12">
+                  Support
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex justify-end items-center pr-16 lg:pr-0">
+          <a href="/auth/login" class="hidden md:block text-base font-bold text-dark dark:text-white hover:opacity-70 py-3 px-7">
+            Sign In
+          </a>
+          <div>
+            <label for="darkToggler" class="cursor-pointer w-9 h-9 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gray-2 dark:bg-dark-bg text-black dark:text-white">
+              <input type="checkbox" name="darkToggler" id="darkToggler" class="sr-only" aria-label="darkToggler">
+              <svg viewBox="0 0 23 23" class="stroke-current dark:hidden w-5 h-5 md:w-6 md:h-6" fill="none">
+                <path d="M9.55078 1.5C5.80078 1.5 1.30078 5.25 1.30078 11.25C1.30078 17.25 5.80078 21.75 11.8008 21.75C17.8008 21.75 21.5508 17.25 21.5508 13.5C13.3008 18.75 4.30078 9.75 9.55078 1.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden dark:block w-5 h-5 md:w-6 md:h-6">
+                <mask id="path-1-inside-1_977:1934" fill="white">
+                  <path d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z"></path>
+                </mask>
+                <path d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z" fill="black" stroke="white" stroke-width="2" mask="url(#path-1-inside-1_977:1934)"></path>
+              </svg>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="home" class="relative overflow-hidden z-10 pt-[120px] pb-[110px] md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]">
+  <div class="container">
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full px-4">
+        <div class="mx-auto max-w-[570px] text-center wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
+          <h1 class="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-tight md:leading-tight mb-5">
+            Welcome To Restfull API
+          </h1>
+          <p class="font-medium text-lg md:text-xl leading-relaxed md:leading-relaxed text-body-color dark:text-white dark:opacity-90 mb-12">
+            Arifzyn API merupakan program aplikasi antarmuka yang dijalan
+            menggunakan library express js serta menggunakan database dari
+            <span style="color: #3ef14d">MongoDB</span>
+          </p>
+          <div class="flex items-center justify-center">
+            <a href="/register" class="text-base font-semibold text-white bg-primary py-4 px-8 hover:bg-opacity-80 mx-2 rounded-md transition duration-300 ease-in-out">
+              Get Started
+            </a>
+            <a href="#about" class="text-base font-semibold text-black bg-black bg-opacity-10 dark:text-white dark:bg-white dark:bg-opacity-10 py-4 px-8 hover:bg-opacity-20 dark:hover:bg-opacity-20 mx-2 rounded-md transition duration-300 ease-in-out">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute top-0 right-0 z-[-1]">
+    <svg width="450" height="556" viewBox="0 0 450 556" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="277" cy="63" r="225" fill="url(#paint0_linear_25:217)"></circle>
+      <circle cx="17.9997" cy="182" r="18" fill="url(#paint1_radial_25:217)"></circle>
+      <circle cx="76.9997" cy="288" r="34" fill="url(#paint2_radial_25:217)"></circle>
+      <circle cx="325.486" cy="302.87" r="180" transform="rotate(-37.6852 325.486 302.87)" fill="url(#paint3_linear_25:217)"></circle>
+      <circle opacity="0.8" cx="184.521" cy="315.521" r="132.862" transform="rotate(114.874 184.521 315.521)" stroke="url(#paint4_linear_25:217)"></circle>
+      <circle opacity="0.8" cx="356" cy="290" r="179.5" transform="rotate(-30 356 290)" stroke="url(#paint5_linear_25:217)"></circle>
+      <circle opacity="0.8" cx="191.659" cy="302.659" r="133.362" transform="rotate(133.319 191.659 302.659)" fill="url(#paint6_linear_25:217)"></circle>
+      <defs>
+        <linearGradient id="paint0_linear_25:217" x1="-54.5003" y1="-178" x2="222" y2="288" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+        <radialGradient id="paint1_radial_25:217" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(17.9997 182) rotate(90) scale(18)">
+          <stop offset="0.145833" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0.08"></stop>
+        </radialGradient>
+        <radialGradient id="paint2_radial_25:217" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(76.9997 288) rotate(90) scale(34)">
+          <stop offset="0.145833" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0.08"></stop>
+        </radialGradient>
+        <linearGradient id="paint3_linear_25:217" x1="226.775" y1="-66.1548" x2="292.157" y2="351.421" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="paint4_linear_25:217" x1="184.521" y1="182.159" x2="184.521" y2="448.882" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="paint5_linear_25:217" x1="356" y1="110" x2="356" y2="470" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="paint6_linear_25:217" x1="118.524" y1="29.2497" x2="166.965" y2="338.63" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <div class="absolute bottom-0 left-0 z-[-1]">
+    <svg width="364" height="201" viewBox="0 0 364 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.88928 72.3303C33.6599 66.4798 101.397 64.9086 150.178 105.427C211.155 156.076 229.59 162.093 264.333 166.607C299.076 171.12 337.718 183.657 362.889 212.24" stroke="url(#paint0_linear_25:218)"></path>
+      <path d="M-22.1107 72.3303C5.65989 66.4798 73.3965 64.9086 122.178 105.427C183.155 156.076 201.59 162.093 236.333 166.607C271.076 171.12 309.718 183.657 334.889 212.24" stroke="url(#paint1_linear_25:218)"></path>
+      <path d="M-53.1107 72.3303C-25.3401 66.4798 42.3965 64.9086 91.1783 105.427C152.155 156.076 170.59 162.093 205.333 166.607C240.076 171.12 278.718 183.657 303.889 212.24" stroke="url(#paint2_linear_25:218)"></path>
+      <path d="M-98.1618 65.0889C-68.1416 60.0601 4.73364 60.4882 56.0734 102.431C120.248 154.86 139.905 161.419 177.137 166.956C214.37 172.493 255.575 186.165 281.856 215.481" stroke="url(#paint3_linear_25:218)"></path>
+      <circle opacity="0.8" cx="214.505" cy="60.5054" r="49.7205" transform="rotate(-13.421 214.505 60.5054)" stroke="url(#paint4_linear_25:218)"></circle>
+      <circle cx="220" cy="63" r="43" fill="url(#paint5_radial_25:218)"></circle>
+      <defs>
+        <linearGradient id="paint0_linear_25:218" x1="184.389" y1="69.2405" x2="184.389" y2="212.24" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_linear_25:218" x1="156.389" y1="69.2405" x2="156.389" y2="212.24" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7"></stop>
+        </linearGradient>
+        <linearGradient id="paint2_linear_25:218" x1="125.389" y1="69.2405" x2="125.389" y2="212.24" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7"></stop>
+        </linearGradient>
+        <linearGradient id="paint3_linear_25:218" x1="93.8507" y1="67.2674" x2="89.9278" y2="210.214" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#4A6CF7"></stop>
+        </linearGradient>
+        <linearGradient id="paint4_linear_25:218" x1="214.505" y1="10.2849" x2="212.684" y2="99.5816" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+        <radialGradient id="paint5_radial_25:218" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 63) rotate(90) scale(43)">
+          <stop offset="0.145833" stop-color="white" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="white" stop-opacity="0.08"></stop>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+</section>
+
+<section id="features" class="bg-primary bg-opacity-[3%] pt-[120px] pb-[50px]">
+  <div class="container">
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full px-4">
+        <div class="mx-auto max-w-[570px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+          <h2 class="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+            Main Features
+          </h2>
+          <p class="text-body-color text-base md:text-lg leading-relaxed md:leading-relaxed">
+            Ada banyak pilihan fitur yang ada di API ini, silahkan pilih atau
+            pakai sesuai dengan yang anda butuhkan.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".15s" style="visibility: hidden; animation-delay: 0.15s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Kode yang Elegan
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Kode kami tetap elegan dan bersih. Setiap komit diuji sebelum
+            digunakan!
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12" y2="22"></line>
+              <circle cx="12" cy="12" r="1"></circle>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Tampilan Sederhana
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Tema yang kami gunakan sangatlah sederhana jadi memudahkan kalian
+            untuk melihat di setiap fiturnya.
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".25s" style="visibility: hidden; animation-delay: 0.25s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+              <line x1="8" y1="8" x2="16" y2="8"></line>
+              <line x1="8" y1="16" x2="16" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Dukungan
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Kami akan memberikan dukungan jika ada kendala berupa webnya down,
+            ataupun ada fitur yang tidak bisa di pakai.
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Desain Mengesankan
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Tema kami dirancang dengan sentuhan tren. Setiap tema mewakili
+            pilihan tipografi, komponen UI, dan kepribadian yang elegan.
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".15s" style="visibility: hidden; animation-delay: 0.15s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M4 4a1 1 0 0 1 1-1h7a1 1 0 0 1 .707.293l8 8a1 1 0 0 1 0 1.414l-7 7a1 1 0 0 1-1.414 0l-8-8A1 1 0 0 1 3 11v-7a1 1 0 0 1 1-1h7a1 1 0 0 1 .707.293"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Kustomisasi Mudah
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Penggunaan API dalam web kami sangatlah mudah untuk di koneksikan ke
+            dalam aplikasi ataupun bot anda.
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="mb-[70px] wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+          <div class="w-[70px] h-[70px] flex items-center justify-center rounded-md bg-primary bg-opacity-10 mb-10 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 12 20 22 4 22 4 12"></polyline>
+              <rect x="2" y="7" width="20" height="5"></rect>
+              <line x1="12" y1="22" x2="12" y2="7"></line>
+              <line x1="7" y1="2" x2="17" y2="2"></line>
+            </svg>
+          </div>
+          <h3 class="font-bold text-black dark:text-white text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-5">
+            Pembaruan Gratis
+          </h3>
+          <p class="text-body-color text-base leading-relaxed font-medium pr-[10px]">
+            Anda dijamin mendapatkan semua pembaruan di masa depan bagi user
+            free ataupun user premium.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="relative z-10 pt-[120px] pb-20">
+  <div class="container">
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full px-4">
+        <div class="mx-auto max-w-[655px] text-center mb-[100px] wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+          <h2 class="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4">
+            Pricing Plan
+          </h2>
+          <p class="text-body-color text-base md:text-lg leading-relaxed md:leading-relaxed max-w-[570px] mx-auto">
+            Pilih paket yang sesuai dengan kebutuhan Anda!
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="flex flex-wrap mx-[-16px]">
+        <div class="w-full px-4">
+          <div class="flex justify-center mb-16 wow fadeInUp" data-wow-delay=".1s">
+            <span class="text-dark dark:text-white text-base font-semibold mr-4 monthly cursor-pointer"> Monthly </span>
+            <label for="togglePlan" class="flex items-center cursor-pointer">
+              <div class="relative">
+                <input id="togglePlan" type="checkbox" class="sr-only" />
+                <div class="w-14 h-5 bg-[#1D2144] rounded-full shadow-inner"></div>
+                <div class="dot absolute w-7 h-7 bg-primary rounded-full shadow-switch-1 left-0 top-[-4px] transition flex items-center justify-center">
+                  <span class="active w-4 h-4 rounded-full bg-white"></span>
+                </div>
+              </div>
+            </label>
+            <span class="text-dark dark:text-white text-base font-semibold ml-4 yearly cursor-pointer"> Yearly </span>
+          </div>
+        </div>
+      </div> -->
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="relative z-10 bg-white dark:bg-[#1D2144] shadow-signUp px-8 py-10 rounded-md mb-10 wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-black dark:text-white text-3xl mb-2 price">
+              Rp.<span class="amount">0</span>
+            </h3>
+            <h4 class="text-white font-bold text-xl mb-2">Free</h4>
+          </div>
+          <p class="text-base text-body-color mb-7">
+            Memulai mengembangkan projects anda menggunakan Arifzyn API (menulai
+            langkah awal).
+          </p>
+          <div class="border-b border-body-color dark:border-white border-opacity-10 dark:border-opacity-10 pb-8 mb-8">
+            <a href="/authentation" class="font-semibold text-base text-white bg-primary w-full flex items-center justify-center rounded-md p-3 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out">
+              START FREE
+            </a>
+          </div>
+          <div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="6" viewBox="0 0 8 6" class="fill-current">
+                  <path d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Limit 25/Days
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="8" viewBox="0 0 8 8" class="fill-current stroke-current">
+                  <path d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z" stroke-width="0.3"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Costum Apikey
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="8" viewBox="0 0 8 8" class="fill-current stroke-current">
+                  <path d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z" stroke-width="0.3"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Premium Account
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="8" viewBox="0 0 8 8" class="fill-current stroke-current">
+                  <path d="M1.40102 0.95486C1.27421 0.828319 1.07219 0.828354 0.945421 0.954965C0.818519 1.08171 0.818519 1.28389 0.945421 1.41063L0.945612 1.41083L3.54915 4.00184L0.955169 6.60202C0.955106 6.60209 0.95504 6.60215 0.954978 6.60222C0.828263 6.72897 0.82833 6.93101 0.955169 7.05769C1.01288 7.11533 1.09989 7.15024 1.17815 7.15024C1.25641 7.15024 1.34342 7.11533 1.40113 7.05769L1.29513 6.95156L1.40113 7.05769L4.00493 4.45706L6.59917 7.0575L6.59936 7.05769C6.65707 7.11533 6.74408 7.15024 6.82234 7.15024C6.9006 7.15024 6.98761 7.11533 7.04532 7.05769C7.17215 6.93102 7.17222 6.729 7.04553 6.60224C7.04546 6.60217 7.04539 6.6021 7.04532 6.60202L4.46051 4.00165L7.05507 1.4009C7.05511 1.40085 7.05516 1.4008 7.05521 1.40076L7.05526 1.40071L6.94907 1.29477L1.40102 0.95486ZM1.40102 0.95486C1.40106 0.954895 1.40109 0.95493 1.40113 0.954965L1.40102 0.95486Z" stroke-width="0.3"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Settings Profile
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+        <div class="relative z-10 bg-white dark:bg-[#1D2144] shadow-signUp px-8 py-10 rounded-md mb-10 wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-black dark:text-white text-3xl mb-2 price">
+              Rp.<span class="amount">10.000</span>
+              <span class="text-dark dark:text-body-color time">/bulan</span>
+            </h3>
+            <h4 class="text-white font-bold text-xl mb-2">Premium</h4>
+          </div>
+          <p class="text-base text-body-color mb-7">
+            mengembangkan project anda menggunakan premium plan agar keren.
+          </p>
+          <div class="border-b border-body-color dark:border-white border-opacity-10 dark:border-opacity-10 pb-8 mb-8">
+            <a href="https://api.whatsapp.com/send/?phone=6288213503541&amp;text&amp;text=Permisi+kak%2C+mau+beli+premiumnya+dong" class="font-semibold text-base text-white bg-primary w-full flex items-center justify-center rounded-md p-3 hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out">
+              Buy Now
+            </a>
+          </div>
+          <div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="6" viewBox="0 0 8 6" class="fill-current">
+                  <path d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Unlimited Limit
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="6" viewBox="0 0 8 6" class="fill-current">
+                  <path d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Custom Apikey
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="6" viewBox="0 0 8 6" class="fill-current">
+                  <path d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Premium Account
+              </p>
+            </div>
+            <div class="flex items-center mb-3">
+              <span class="bg-primary bg-opacity-10 text-primary max-w-[18px] w-full h-[18px] mr-3 flex items-center justify-center rounded-full">
+                <svg width="8" height="6" viewBox="0 0 8 6" class="fill-current">
+                  <path d="M2.90567 6.00024C2.68031 6.00024 2.48715 5.92812 2.294 5.74764L0.169254 3.43784C-0.0560926 3.18523 -0.0560926 2.78827 0.169254 2.53566C0.39461 2.28298 0.74873 2.28298 0.974086 2.53566L2.90567 4.66497L7.02642 0.189715C7.25175 -0.062913 7.60585 -0.062913 7.83118 0.189715C8.0566 0.442354 8.0566 0.839355 7.83118 1.09198L3.54957 5.78375C3.32415 5.92812 3.09882 6.00024 2.90567 6.00024Z"></path>
+                </svg>
+              </span>
+              <p class="text-base font-medium text-body-color m-0">
+                Settings Profile
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute left-0 bottom-0 z-[-1]">
+    <svg width="239" height="601" viewBox="0 0 239 601" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect opacity="0.3" x="-184.451" y="600.973" width="196" height="541.607" rx="2" transform="rotate(-128.7 -184.451 600.973)" fill="url(#paint0_linear_93:235)"></rect>
+      <rect opacity="0.3" x="-188.201" y="385.272" width="59.7544" height="541.607" rx="2" transform="rotate(-128.7 -188.201 385.272)" fill="url(#paint1_linear_93:235)"></rect>
+      <defs>
+        <linearGradient id="paint0_linear_93:235" x1="-90.1184" y1="420.414" x2="-90.1184" y2="1131.65" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_linear_93:235" x1="-159.441" y1="204.714" x2="-159.441" y2="915.952" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4A6CF7"></stop>
+          <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>
+
+<footer class="relative z-10 bg-primary bg-opacity-5 pt-[100px] wow fadeInUp" data-wow-delay=".1s" style="visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+  <div class="container">
+    <div class="flex flex-wrap mx-[-16px]">
+      <div class="w-full md:w-1/2 lg:w-4/12 xl:w-5/12 px-4">
+        <div class="mb-16 max-w-[360px]">
+          <a href="#" class="inline-block mb-8">
+            <span class="ml-2 text-white text-2xl font-semibold">Arifzyn API</span>
+          </a>
+          <p class="text-body-color text-base font-medium leading-relaxed mb-9">
+            menggunakan mekanisme yang memungkinkan dua komponen perangkat lunak
+            berkomunikasi satu sama lain menggunakan serangkaian definisi dan
+            protokol.
+          </p>
+          <div class="flex items-center">
+            <a href="https://github.com/Arifzyn19" aria-label="social-link" class="text-[#CED3F6] hover:text-primary mr-6">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://youtube.com/@arifzxa19" aria-label="social-link" class="text-[#CED3F6] hover:text-primary mr-6">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://wa.me/62895347198105" aria-label="social-link" class="text-[#CED3F6] hover:text-primary mr-6">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12 px-4">
+        <div class="mb-16">
+          <h2 class="font-bold text-black dark:text-white text-xl mb-10">
+            Other links
+          </h2>
+          <ul>
+            <li>
+              <a href="https://whatsapp.com/channel/0029VaHMgM3Lo4hcfGTJ3W1e" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary">
+                Saluran WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.whatsapp.com/HKUwcSgZvh4HAHIY6Cz0ky" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary">
+                Group WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.whatsapp.com/Chrcs5gZ9mr0UWfdgOgIKq" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary">
+                Group Team
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-8 bg-primary bg-opacity-10">
+    <div class="container">
+      <p class="text-body-color dark:text-white text-base text-center">
+        © Crafted by Arifzyn API
+      </p>
+    </div>
+  </div>
+</footer>
+
+<a href="javascript:void(0)" class="hidden items-center justify-center bg-primary text-white w-10 h-10 rounded-md fixed bottom-8 right-8 left-auto z-[999] hover:shadow-signUp hover:bg-opacity-80 transition duration-300 ease-in-out back-to-top shadow-md">
+  <span class="w-3 h-3 border-t border-l border-white rotate-45 mt-[6px]"></span>
+</a>
+
+
+    <script>
+      // Pricing plan toggler
+      const togglePlan = document.querySelector('#togglePlan');
+      document
+        .querySelector('.monthly')
+        .addEventListener('click', () => (togglePlan.checked = false));
+      document
+        .querySelector('.yearly')
+        .addEventListener('click', () => (togglePlan.checked = true));
+
+      // Smooth scroll for menu links
+      document.querySelectorAll('.menu-scroll').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          document
+            .querySelector(link.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Update active menu item on scroll
+      function onScroll() {
+        const scrollPos =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop;
+        document.querySelectorAll('.menu-scroll').forEach((link) => {
+          const section = document.querySelector(link.getAttribute('href'));
+          const isActive =
+            section.offsetTop <= scrollPos + 73 &&
+            section.offsetTop + section.offsetHeight > scrollPos + 73;
+          link.classList.toggle('active', isActive);
+        });
+      }
+      window.addEventListener('scroll', onScroll);
+    </script>
+
+    <script defer="" src="js/bundle.js"></script>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" crossorigin="anonymous"></script>
+  
+
+</body></html>
