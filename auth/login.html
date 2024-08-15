@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="shana API adalah platform REST API yang handal dan mudah digunakan. Dengan antarmuka yang intuitif, pengguna dapat mengakses dan mengintegrasikan berbagai sumber daya data dengan mudah."
+    />
+    <meta name="author" content="Arifzyn" />
+    <meta
+      name="keywords"
+      content="Arifzyn, Arifzyn API, arifzyn, ArifzynXD API, arifzynxd, arifzynapi, arifzynapis, web"
+    />
+    <title>Arifzyn API - Authentication</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- End fonts -->
+    <!-- core:css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/vendors/core/core.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link
+      rel="stylesheet"
+      href="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css"
+    />
+    <link rel="stylesheet" href="/fonts/feather-font/css/iconfont.css" />
+    <link
+      rel="stylesheet"
+      href="/vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- End layout styles -->
+
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/images/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/images/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/images/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/images/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/images/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/images/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/images/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/images/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/images/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="/images/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <style>
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .auth-page .card {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .auth-form-wrapper {
+    max-width: 100%;
+  }
+
+  @media (max-width: 767.98px) {
+    .auth-page .card {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+</style>
+<body>
+  <div class="main-wrapper">
+    <div class="page-wrapper full-page">
+      <div
+        class="page-content d-flex align-items-center justify-content-center"
+      >
+        <div class="row w-100 mx-0 auth-page">
+          <div class="col-md-8 col-xl-6 mx-auto">
+            
+
+
+
+            <div class="card">
+              <div class="row">
+                <div class="col-md-12 ps-md-0">
+                  <div class="auth-form-wrapper px-4 py-5">
+                    <a
+                      href="/"
+                      class="noble-ui-logo logo-light d-block mb-2 text-center"
+                      ><span><b>Login</b></span></a
+                    >
+                    <a href="#" class="noble-ui-logo logo-light d-block mb-2"
+                      >Arifzyn<span>API</span></a
+                    >
+                    <h5 class="text-muted fw-normal mb-4">
+                      Welcome back! Log in to your account.
+                    </h5>
+                    <form
+                      class="forms-sample"
+                      action="/auth/login"
+                      method="post"
+                    >
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          autocomplete="email"
+                          placeholder="Email"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            autocomplete="current-password"
+                            placeholder="Password"
+                            required
+                          />
+                          <span
+                            id="toggle-password"
+                            class="input-group-text cursor-pointer"
+                            ><i class="fa fa-eye"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          class="btn btn-primary d-grid w-100"
+                          type="submit"
+                          value="Login"
+                        />
+                      </div>
+                      <div class="mt-3 text-center">
+                        <span class="text-muted">Or</span>
+                      </div>
+                      <div class="mt-3 d-flex justify-content-between">
+                        <a
+                          href="/auth/github"
+                          class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0"
+                        >
+                          <i class="btn-icon-prepend fab fa-github"></i> Login
+                          with GitHub
+                        </a>
+                        <a
+                          href="/auth/google"
+                          class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0"
+                        >
+                          <i class="btn-icon-prepend fab fa-google"></i> Login
+                          with Google
+                        </a>
+                      </div>
+                      <div class="text-center mt-3">
+                        <span class="text-muted"
+                          >Don't have an account?
+                          <a href="/register" class="text-primary"
+                            >Sign up here</a
+                          >.</span
+                        >
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let toggle = document.getElementById('toggle-password');
+    toggle.addEventListener('click', () => {
+      var passwordInput = document.getElementById('password');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggle.innerHTML = `<i class="fa fa-eye-slash"></i>`;
+      } else {
+        passwordInput.type = 'password';
+        toggle.innerHTML = `<i class="fa fa-eye"></i>`;
+      }
+    });
+  </script>
+</body>
+
+
+    <script src="/vendors/core/core.js"></script>
+    <script src="/vendors/feather-icons/feather.min.js"></script>
+    <script src="/js/template.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
