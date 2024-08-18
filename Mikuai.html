@@ -320,10 +320,10 @@
             messagesContainer.appendChild(botMessageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-            const apiKey = "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";
+            const apiKey = "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";
             fetch('https://api.groq.com/openai/v1/chat/completions', {
                 method: 'POST',
-                Authorization: `Bearer ${apikey}`,
+                Authorization: `Bearer ${apiKey}`,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
