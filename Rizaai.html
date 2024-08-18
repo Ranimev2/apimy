@@ -120,7 +120,7 @@
       const chatDisplay = document.getElementById("chatDisplay");
 
       // Kirim pesan ke server
-      fetch(`https://api.groq.com/chat/${model}`, {
+      fetch(`https://api.groq.com/chat/completions/${model}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
