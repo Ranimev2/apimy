@@ -113,14 +113,13 @@
   <script>
     // script.js
     const apiKey = "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";
-    const model = "Ilama3-8b-8192";
 
     function sendMessage() {
       const userInput = document.getElementById("userInput").value;
       const chatDisplay = document.getElementById("chatDisplay");
 
       // Kirim pesan ke server
-      fetch(`https://api.groq.com/chat/completions/${model}`, {
+      fetch(`https://api.groq.com/chat/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
