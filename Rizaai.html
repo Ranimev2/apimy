@@ -113,13 +113,13 @@
   <script>
     // script.js
     const apiKey = "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";
-
+    const models = "llama3-8b-8192"
     function sendMessage() {
       const userInput = document.getElementById("userInput").value;
       const chatDisplay = document.getElementById("chatDisplay");
 
       // Kirim pesan ke server
-      fetch(`https://api.groq.com/openai/v1/chat/completions`, {
+      fetch(`https://api.groq.com/openai/v1/${models}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
