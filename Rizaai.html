@@ -112,14 +112,14 @@
 
   <script>
     // script.js
-    const apiKey = "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"
+    const apiKey = "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"
     const models = "llama3-8b-8192"
     function sendMessage() {
       const userInput = document.getElementById("userInput").value;
       const chatDisplay = document.getElementById("chatDisplay");
 
       // Kirim pesan ke server
-      fetch(`https://api.groq.com/openai/v1/chat/completions`, {
+      fetch(`https://api.openai.com/v1/engines/davinci/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
