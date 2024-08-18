@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MikuAi - Miku AI Sehari-hari Anda</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #303030;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .time {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .address-bar {
+            color: #50bfa4;
+            text-decoration: none;
+        }
+
+        .icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #444;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #888;
+        }
+
+        .chat-box {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 15px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            background-color: #e1ffc7;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+
+        .message.bot {
+    background-color: #e0e0e0;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    position: relative;
+    white-space: pre-line; /* Ini akan mempertahankan newline tanpa menambah <br> */
+}
+
+
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        .typing-indicator div {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #888;
+            border-radius: 50%;
+            animation: typing 1.5s infinite;
+        }
+
+        .typing-indicator div:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .typing-indicator div:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes typing {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+        }
+
+        .input-box {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .input-placeholder {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        #send-btn {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #send-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            padding: 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .links a {
+            color: #0078d4;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p class="time" id="current-time"></p>
+        <a href="https://apimy.vercel.app/AI/Miku" class="address-bar">Chat GPT</a>
+        <div class="icons">
+            <span class="icon"></span>
+            <span class="icon"></span>
+            <span class="icon"></span>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Miku AI sehari-hari Anda</h1>
+    </div>
+
+    <div class="chat-box">
+        <div class="messages"></div>
+        <div class="input-box">
+            <input type="text" name="message" class="input-placeholder" placeholder="Tanya saya tentang apa saja..." required id="messageInput">
+            <button id="send-btn">Kirim</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Miku Ai, Respon Tidak Selalu Akurat.</p>
+        <div class="links">
+            <a href="#">Ketentuan</a>
+            <a href="#">Privasi</a>
+            <a href="#">Tanya Jawab Umum</a>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const updateTime = () => {
+        const now = new Date();
+        const options = {
+            timeZone: 'Asia/Jakarta',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        const timeString = now.toLocaleTimeString('id-ID', options);
+        document.getElementById('current-time').textContent = timeString;
+    };
+
+    updateTime();
+    setInterval(updateTime, 1000); // Update every second
+
+    function typeText(element, text, callback) {
+        let index = 0;
+        const speed = 5; // Kecepatan mengetik (ms per karakter)
+        const intervalId = setInterval(() => {
+            element.innerHTML += text.charAt(index); // Menggunakan innerHTML
+            index++;
+            if (index >= text.length) {
+                clearInterval(intervalId);
+                if (callback) callback();
+            }
+        }, speed);
+    }
+
+    const messagesContainer = document.querySelector('.messages');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('send-btn');
+
+    function appendMessage(text, type, image) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    messagesContainer.appendChild(messageDiv);
+
+    if (type === 'user') {
+        messageDiv.textContent = text;
+    } else if (type === 'bot') {
+        if (image) {
+            const img = document.createElement('img');
+            img.src = image;
+            img.style.maxWidth = '100%';
+            messageDiv.appendChild(img);
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = image;
+            downloadLink.download = 'generated-image.jpg'; // Nama file saat diunduh
+            downloadLink.textContent = 'Unduh Gambar';
+            downloadLink.style.display = 'block';
+            downloadLink.style.textAlign = 'right';
+            downloadLink.style.marginTop = '5px';
+
+            messageDiv.appendChild(downloadLink);
+        } else {
+            typeText(messageDiv, text);
+        }
+    }
+
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message === '') return;
+            appendMessage(message, 'user');
+            messageInput.value = '';
+            sendButton.disabled = true;
+
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.className = 'message bot';
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator';
+            typingIndicator.innerHTML = '<div></div><div></div><div></div>';
+            botMessageDiv.appendChild(typingIndicator);
+            messagesContainer.appendChild(botMessageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            const apiKey = "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";
+            fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                Authorization: `Bearer ${apikey}`,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'prompt': message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                botMessageDiv.innerHTML = ''; 
+                const responseText = data.response || "Terjadi Kesalahan, Coba Lagi Nanti";
+                const responseImage = data.image || null;
+                appendMessage(responseText, 'bot', responseImage);
+                sendButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                botMessageDiv.textContent = ''; // Menghapus indikator loading
+                appendMessage("Terjadi Kesalahan, Coba Lagi Nanti", 'bot');
+                sendButton.disabled = false;
+            });
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+
+        messageInput.addEventListener('input', function() {
+            sendButton.disabled = !messageInput.value.trim();
+        });
+    });
+    </script>
+</body>
