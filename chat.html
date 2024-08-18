@@ -1,38 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHANA AI</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to bottom, #f0f0f0, #ccc);
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+    }
+    /* Chat Container Styles */
+    .chat-container {
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Chat Header Styles */
+    .chat-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    /* Chat Messages Styles */
+    .chat-messages {
+      padding: 20px;
+    }
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    #user-message {
+      background-color: #f7f7f7;
+    }
+    #bot-message {
+      background-color: #fff;
+      border-left: 4px solid #333;
+    }
+    /* Chat Form Styles */
+    #chat-form {
+      padding: 10px;
+    }
+    #user-input {
+      width: 80%;
+      height: 30px;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+    }
+    #send-button {
+      width: 20%;
+      height: 30px;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #send-button:hover {
+      background-color: #3e8e41;
+    }
+    /* Logo Styles */
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      border-radius: 50%;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="user-info">
-                <img src="user-avatar.png" alt="User Avatar" class="avatar">
-                <div class="user-details">
-                    <h2>Chat Bot</h2>
-                    <p id="status">Online</p>
-                </div>
-            </div>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <!-- Chat messages will be appended here -->
-        </div>
-        <div class="chat-footer">
-            <input type="file" id="media-input" accept="image/*" style="display: none;" onchange="previewMedia()">
-            <button class="attach-btn" onclick="document.getElementById('media-input').click()">📎</button>
-            <div class="input-container">
-                <input type="text" id="chat-input" placeholder="Type a message" oninput="checkInput()" onkeypress="handleKeyPress(event)">
-                <div class="media-preview" id="media-preview" style="display: none;">
-                    <img id="preview-img" src="" alt="Preview">
-                    <button class="close-preview" onclick="cancelMedia()">✕</button>
-                </div>
-            </div>
-            <button class="send-btn" id="send-btn" onclick="sendMessage()" disabled>Send</button>
-        </div>
+  <header>
+    <div class="https://telegra.ph/file/5e78692b12bcb9e3b2492.jpg">CB</div>
+  </header>
+  <div class="chat-container">
+    <div class="chat-header">
+      <p>Chat with me!</p>
     </div>
-    <script src="script.js"></script>
+    <div class="chat-messages">
+      <div class="message" id="user-message"></div>
+      <div class="message" id="bot-message"></div>
+    </div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send-button">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+    const userMessageDiv = document.getElementById('user-message');
+    const botMessageDiv = document.getElementById('bot-message');
+
+    const apiKey = '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';
+    const apiEndpoint = 'https://api.openai.com/v1/engines/davinci/completions';
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userInputValue = userInput.value.trim();
+      if (userInputValue) {
+        try {
+          const response = await fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify({
+              prompt: userInputValue,
+              max_tokens: 50,
+            }),
+          });
+          const data = await response.json();
+          const botResponse = data.choices[0].text;
+          botMessageDiv.innerText = botResponse;
+          userMessageDiv.innerText = userInputValue;
+          userInput.value = '';
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
