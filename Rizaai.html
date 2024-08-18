@@ -1,107 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI Chatbot</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin: 10px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            padding: 10px;
-            display: inline-block;
-        }
-        .logo img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-        .input-field {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-        }
-        .button {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #3e8e41;
-        }
-        .response {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miku Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .background {
+      background-image: url('https://telegra.ph/file/5e78692b12bcb9e3b2492.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chat-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .input-group label {
+      margin-right: 10px;
+    }
+
+    .input-group input {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .send-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .send-button:hover {
+      background-color: #3e8e41;
+    }
+
+    #chatDisplay {
+      padding: 10px;
+    }
+
+    .user-message {
+      background-color: #e6f7ff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .assistant-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="logo.png" alt="OpenAI Logo">
-        </div>
-        <h2>OpenAI Chatbot</h2>
-        <input type="text" id="user-input" class="input-field" placeholder="Type a message...">
-        <button id="send-btn" class="button">Send</button>
-        <div id="response-container"></div>
-
-        <script>
-            const apiKey = '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';
-            const apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
-
-            const userInput = document.getElementById('user-input');
-            const sendBtn = document.getElementById('send-btn');
-            const responseContainer = document.getElementById('response-container');
-
-            sendBtn.addEventListener('click', async () => {
-                const userInputValue = userInput.value.trim();
-                if (userInputValue !== '') {
-                    try {
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${apiKey}`
-                            },
-                            body: JSON.stringify({
-                                'prompt': userInputValue,
-                                'max_tokens': 100,
-                                'temperature': 0.5
-                            })
-                        });
-
-                        const responseData = await response.json();
-                        const responseText = responseData.choices[0].text;
-
-                        const responseHTML = `<div class="response">${responseText}</div>`;
-                        responseContainer.innerHTML += responseHTML;
-
-                        userInput.value = '';
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
-            });
-        </script>
+  <div class="background">
+    <div class="chat-container">
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <h1>Miku Chat</h1>
+      <div class="input-group">
+        <label for="userInput">Your message:</label>
+        <input type="text" id="userInput" placeholder="Type your message here...">
+        <button class="send-button" onclick="sendMessage()">Send</button>
+      </div>
+      <div id="chatDisplay"></div>
     </div>
+  </div>
+
+  <script>
+    // script.js
+    const apiKey = "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";
+    const model = "Ilama3-8b-8192";
+
+    function sendMessage() {
+      const userInput = document.getElementById("userInput").value;
+      const chatDisplay = document.getElementById("chatDisplay");
+
+      // Kirim pesan ke server
+      fetch(`https://api.example.com/chat/${model}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          message: userInput
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const assistantMessage = data.message;
+        const userMessage = userInput;
+
+        // Tampilkan pesan pengguna
+        const userMessageElement = document.createElement("div");
+        userMessageElement.classList.add("user-message");
+        userMessageElement.textContent = userMessage;
+        chatDisplay.appendChild(userMessageElement);
+
+        // Tampilkan pesan asisten
+        const assistantMessageElement = document.createElement("div");
+        assistantMessageElement.classList.add("assistant-message");
+        assistantMessageElement.textContent = assistantMessage;
+        chatDisplay.appendChild(assistantMessageElement);
+      })
+      .catch(error => console.error(error));
+    }
+  </script>
 </body>
 </html>
