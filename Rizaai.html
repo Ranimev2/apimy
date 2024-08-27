@@ -112,14 +112,14 @@
 
   <script>
     // script.js kalo diubah jadi yapit
-    const apiKey = "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";
-    const models = "llama3-8b-8192"
+    const apiKey ="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":
+    const models ="llama3-8b-8192"
     function sendMessage() {
       const userInput = document.getElementById("userInput").value;
       const chatDisplay = document.getElementById("chatDisplay");
 
       // Kirim pesan ke server
-      fetch(`https://api.groq.com/openai/v1/chat/completions`, {
+      fetch(`https://api.groq.com/openai/v1/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
